@@ -1,5 +1,7 @@
 from flask import Flask,request,render_template,send_file
+from flask_cors import CORS
 app=Flask(__name__)
+CORS(app)
 a=""
 c=""
 @app.route("/")
@@ -25,4 +27,5 @@ def D():
 def E():
     global c
     return send_file("static\\"+c)
+
 app.run(host="0.0.0.0",port=2200)
