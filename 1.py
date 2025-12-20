@@ -4,6 +4,8 @@ app=Flask(__name__)
 CORS(app)
 a=""
 c=""
+d=""
+e=""
 @app.route("/")
 def A():
     return render_template("1.html")
@@ -27,5 +29,17 @@ def D():
 def E():
     global c
     return send_file("static\\"+c)
-
+@app.route("/send/2")
+def F():
+    global d,e
+    d=request.args.get("d")
+    e=request.args.get("e")
+    return """<script>window.close();</script>"""
+@app.route("/catch/message/2")
+def G():
+    global d,e
+    if request.args.get("d")==d:
+        return e
+    return "还没有"
 app.run(host="0.0.0.0",port=2200)
+
