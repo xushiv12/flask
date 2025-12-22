@@ -23,12 +23,12 @@ def D():
     global c
     b=request.files.get("b")
     c=request.form.get("c")
-    b.save("static\\"+c)
+    b.save("\\static\\"+c)
     return "信息已发送"
 @app.route("/catch/message/file")
 def E():
     global c
-    return send_file("static\\"+c)
+    return send_file("\\static\\"+c)
 @app.route("/send/2")
 def F():
     global d,e
@@ -42,4 +42,5 @@ def G():
         return e
     return "还没有"
 app.run(host="0.0.0.0",port=2200)
+
 
