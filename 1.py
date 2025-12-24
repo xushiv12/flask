@@ -41,6 +41,7 @@ def G():
     if request.args.get("d")==d:
         return e
     return "还没有"
+@app.route("/catch/<ooo>")
+def H(ooo):
+    return send_file("\\static\\"+ooo)
 app.run(host="0.0.0.0",port=2200)
-
-
